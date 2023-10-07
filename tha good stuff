@@ -1,0 +1,278 @@
+# Sample workflow for building and deploying a Jekyll site to GitHub Pages
+name: Deploy Jekyll with GitHub Pages dependencies preinstalled
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+- name: Steam Deploy For Windows
+  # You may pin to the exact commit or the version.
+  # uses: cycleapple/SteamDeploy_Windows@90b0570727329dbfbbcd267a3890fbda3f0bcca5
+  uses: cycleapple/SteamDeploy_Windows@v1.0.0
+  with:
+    # The full path for steamcmd .
+    steamcmdPath: # default is 
+    # The username of your builder account.
+    username: # default is 
+    # The user password of your builder account.
+    userpwd: # default is 
+    # The app id within steam partner network.
+    appId: # default is 
+    # The depot id within steam partner network.
+    depotId: 
+    # The root path to your builds. This is the base of which depots will search your files.
+    rootPath: 
+    # Description for this build.
+    buildDescription: # optional
+    # The branch within steam that this build will be automatically put live on.
+    releaseBranch: # optional
+    - name: OS version
+  # You may pin to the exact commit or the version.
+  - name: copr-build
+  # You may pin to the exact commit or the version.
+  # uses: akdev1l/copr-build@aae8c96d8cce692e8d31c6a3312989c039b983d6
+  uses: akdev1l/copr-build@v1.0.2
+  with:
+    # COPR Project Name
+    project-name: # optional, default is ${{ github.repository_owner }}
+    # Package name in COPR
+    package-name: # optional, default is ${{ github.event.repository.name }}
+    # git remote URL
+    git-remote: # optional, default is https://github.com/${{ github.repository_owner }}/${{ github.event.repository.name }}.git
+    # COPR owner
+    owner: # optional, default is ${{ github.repository_owner }}
+    # Comittish for COPR to track
+    committish: # optional, default is main  # uses: sersoft-gmbh/os-version-action@2a8bd0d91e6b59b30b4dc6bfd1f8df08141f0e66
+  uses: sersoft-gmbh/os-version-action@v3.0
+  - name: Setup PHP SDK tool kit for Windows PHP builds
+  # You may pin to the exact commit or the version.
+  # uses: zephir-lang/setup-php-sdk@fd5f1bce00956a7e8ac30faaa1ff0692d6dacdfb
+  uses: zephir-lang/setup-php-sdk@v1.0
+  with:
+    # PHP version to build for (e.g: 7.4, 8.0)
+    php_version: 
+    # Thread Safety
+    ts: # optional, default is nts
+    # Microsoft Visual C++ compiler toolset prefix (e.g: vc14, vs15, vs16)
+    msvc: # optional
+    # Target architecture (x64, x86)
+    arch: # optional, default is x64
+    # Target directory for php-sdk tools installation (e.g: C:\tools)
+    install_dir: 
+    # Cache directory for downloads. Default: system tmp dir
+    cache_dir: # optional, default is   - name: Install Graphviz on Runners
+  # You may pin to the exact commit or the version.
+  # uses: sualeh/install-graphviz@9f0b4568d13d730bff5dd96f559fdac121283c3b
+  uses: sualeh/install-graphviz@v0.0.7
+  Windows 11.ovf010064000000070000000000000160141450713207500147140ustar00vboxovf10vbox_v7.0.10r158379<?xml version="1.0"?>
+<Envelope ovf:version="1.0" xml:lang="en-US" xmlns="http://schemas.dmtf.org/ovf/envelope/1" xmlns:ovf="http://schemas.dmtf.org/ovf/envelope/1" xmlns:rasd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_ResourceAllocationSettingData" xmlns:vssd="http://schemas.dmtf.org/wbem/wscim/1/cim-schema/2/CIM_VirtualSystemSettingData" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:vbox="http://www.virtualbox.org/ovf/machine">
+  <References>
+    <File ovf:id="file1" ovf:href="Windows 11-disk001.vmdk"/>
+  </References>
+  <DiskSection>
+    <Info>List of the virtual disks used in the package</Info>
+    <Disk ovf:capacity="85899345920" ovf:diskId="vmdisk1" ovf:fileRef="file1" ovf:format="http://www.vmware.com/interfaces/specifications/vmdk.html#streamOptimized" vbox:uuid="46b483b7-25e5-4c11-88e8-91887b8c2807"/>
+  </DiskSection>
+  <NetworkSection>
+    <Info>Logical networks used in the package</Info>
+    <Network ovf:name="NAT">
+      <Description>Logical network used by this appliance.</Description>
+    </Network>
+  </NetworkSection>
+  <VirtualSystem ovf:id="Windows 11">
+    <Info>A virtual machine</Info>
+    <OperatingSystemSection ovf:id="102">
+      <Info>The kind of installed guest operating system</Info>
+      <Description>Other_64</Description>
+      <vbox:OSType ovf:required="false">Windows11_64</vbox:OSType>
+    </OperatingSystemSection>
+    <VirtualHardwareSection>
+      <Info>Virtual hardware requirements for a virtual machine</Info>
+      <System>
+        <vssd:ElementName>Virtual Hardware Family</vssd:ElementName>
+        <vssd:InstanceID>0</vssd:InstanceID>
+        <vssd:VirtualSystemIdentifier>Windows 11</vssd:VirtualSystemIdentifier>
+        <vssd:VirtualSystemType>virtualbox-2.2</vssd:VirtualSystemType>
+      </System>
+      <Item>
+        <rasd:Caption>2 virtual CPU</rasd:Caption>
+        <rasd:Description>Number of virtual CPUs</rasd:Description>
+        <rasd:ElementName>2 virtual CPU</rasd:ElementName>
+        <rasd:InstanceID>1</rasd:InstanceID>
+        <rasd:ResourceType>3</rasd:ResourceType>
+        <rasd:VirtualQuantity>2</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:AllocationUnits>MegaBytes</rasd:AllocationUnits>
+        <rasd:Caption>4096 MB of memory</rasd:Caption>
+        <rasd:Description>Memory Size</rasd:Description>
+        <rasd:ElementName>4096 MB of memory</rasd:ElementName>
+        <rasd:InstanceID>2</rasd:InstanceID>
+        <rasd:ResourceType>4</rasd:ResourceType>
+        <rasd:VirtualQuantity>4096</rasd:VirtualQuantity>
+      </Item>
+      <Item>
+        <rasd:Address>0</rasd:Address>
+        <rasd:Caption>sataController0</rasd:Caption>
+        <rasd:Description>SATA Controller</rasd:Description>
+        <rasd:ElementName>sataController0</rasd:ElementName>
+        <rasd:InstanceID>3</rasd:InstanceID>
+        <rasd:ResourceSubType>AHCI</rasd:ResourceSubType>
+        <rasd:ResourceType>20</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>3</rasd:AddressOnParent>
+        <rasd:AutomaticAllocation>false</rasd:AutomaticAllocation>
+        <rasd:Caption>sound</rasd:Caption>
+        <rasd:Description>Sound Card</rasd:Description>
+        <rasd:ElementName>sound</rasd:ElementName>
+        <rasd:InstanceID>4</rasd:InstanceID>
+        <rasd:ResourceSubType>ensoniq1371</rasd:ResourceSubType>
+        <rasd:ResourceType>35</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AddressOnParent>0</rasd:AddressOnParent>
+        <rasd:Caption>disk1</rasd:Caption>
+        <rasd:Description>Disk Image</rasd:Description>
+        <rasd:ElementName>disk1</rasd:ElementName>
+        <rasd:HostResource>/disk/vmdisk1</rasd:HostResource>
+        <rasd:InstanceID>5</rasd:InstanceID>
+        <rasd:Parent>3</rasd:Parent>
+        <rasd:ResourceType>17</rasd:ResourceType>
+      </Item>
+      <Item>
+        <rasd:AutomaticAllocation>true</rasd:AutomaticAllocation>
+        <rasd:Caption>Ethernet adapter on 'NAT'</rasd:Caption>
+        <rasd:Connection>NAT</rasd:Connection>
+        <rasd:ElementName>Ethernet adapter on 'NAT'</rasd:ElementName>
+        <rasd:InstanceID>6</rasd:InstanceID>
+        <rasd:ResourceSubType>E1000</rasd:ResourceSubType>
+        <rasd:ResourceType>10</rasd:ResourceType>
+      </Item>
+    </VirtualHardwareSection>
+    <vbox:Machine ovf:required="false" version="1.19-windows" uuid="{73f24e07-1ea7-4431-8bc3-96f59b6b0456}" name="Windows 11" OSType="Windows11_64" snapshotFolder="Snapshots" lastStateChange="2023-10-03T23:23:24Z" aborted="true">
+      <ovf:Info>Complete VirtualBox machine configuration in VirtualBox format</ovf:Info>
+      <ExtraData>
+        <ExtraDataItem name="GUI/LastCloseAction" value="SaveState"/>
+        <ExtraDataItem name="GUI/LastNormalWindowPosition" value="0,23,1280,658,max"/>
+      </ExtraData>
+      <Hardware>
+        <CPU count="2">
+          <PAE enabled="false"/>
+          <LongMode enabled="true"/>
+          <HardwareVirtExLargePages enabled="true"/>
+        </CPU>
+        <Memory RAMSize="4096"/>
+        <Firmware type="EFI"/>
+        <HID Pointing="USBTablet"/>
+        <Display controller="VBoxSVGA" VRAMSize="128"/>
+        <BIOS>
+          <IOAPIC enabled="true"/>
+          <SmbiosUuidLittleEndian enabled="true"/>
+        </BIOS>
+        <TrustedPlatformModule type="v2_0" location=""/>
+        <USB>
+          <Controllers>
+            <Controller name="XHCI" type="XHCI"/>
+          </Controllers>
+        </USB>
+        <Network>
+          <Adapter slot="0" enabled="true" MACAddress="08002762EDDB" type="82540EM">
+            <NAT localhost-reachable="true"/>
+          </Adapter>
+        </Network>
+        <AudioAdapter controller="HDA" useDefault="true" driver="WAS" enabled="true" enabledOut="true"/>
+        <Clipboard/>
+        <GuestProperties>
+          <GuestProperty name="/VirtualBox/HostInfo/GUI/LanguageID" value="en_US" timestamp="1696290686204655400" flags="RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/HostInfo/VBoxRev" value="158379" timestamp="1696290599225841202" flags="TRANSIENT, RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/HostInfo/VBoxVer" value="7.0.10" timestamp="1696290599225841200" flags="TRANSIENT, RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/HostInfo/VBoxVerExt" value="7.0.10" timestamp="1696290599225841201" flags="TRANSIENT, RDONLYGUEST"/>
+          <GuestProperty name="/VirtualBox/VMInfo/ResetCounter" value="1" timestamp="1696290649287305500" flags="TRANSIENT, RDONLYGUEST"/>
+        </GuestProperties>
+        <StorageControllers>
+          <StorageController name="SATA" type="AHCI" PortCount="2" useHostIOCache="false" Bootable="true" IDE0MasterEmulationPort="0" IDE0SlaveEmulationPort="1" IDE1MasterEmulationPort="2" IDE1SlaveEmulationPort="3">
+            <AttachedDevice type="HardDisk" hotpluggable="false" port="0" device="0">
+              <Image uuid="{46b483b7-25e5-4c11-88e8-91887b8c2807}"/>
+            </AttachedDevice>
+            <AttachedDevice passthrough="false" type="DVD" hotpluggable="false" port="1" device="0"/>
+          </StorageController>
+        </StorageControllers>
+      </Hardware>
+    </vbox:Machine>
+  </VirtualSystem>
+</Envelope>
+Windows 11-disk001.vmdk010066000000070000000000002300001450713207500162270ustar00vboxovf10vbox_v7.0.10r158379KDMV
+����������
+ 
+# Disk DescriptorFile
+version=1
+CID=ae6c0541
+parentCID=ffffffff
+createType="streamOptimized"
+
+# Extent description
+RDONLY 167772160 SPARSE "Windows 11-disk001.vmdk"
+
+# The disk Data Base 
+#DDB
+
+ddb.virtualHWVersion = "4"
+ddb.adapterType="ide"
+ddb.geometry.cylinders="16383"
+ddb.geometry.heads="16"
+ddb.geometry.sectors="63"
+ddb.uuid.image="eeeaf4e6-5b3f-4ffa-ae63-f26c9572da31"
+ddb.uuid.parent="00000000-0000-0000-0000-000000000000"
+ddb.uuid.modification="00000000-0000-0000-0000-000000000000"
+ddb.uuid.parentmodification="00000000-0000-0000-0000-000000000000"
+ddb.comment=""
+KDMV
+���
+ 
+Windows 11.mf010064000000070000000000000002131450713207500145160ustar00vboxovf10vbox_v7.0.10r158379SHA1 (Windows 11.ovf) = cf6862b673b5a382969653dff9c186ae0c71e2e4
+SHA1 (Windows 11-disk001.vmdk) = 2d8e2efa604b5cbaa1d71ae0ccdacbb9bf40ea8c
